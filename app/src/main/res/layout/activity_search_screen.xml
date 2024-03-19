@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".views.SearchScreen">
+
+    <!-- Guideline from top -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"/>
+
+    <!-- Guideline from left -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"/>
+
+    <!-- Guideline from right -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_end="20dp"/>
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:padding="3dp"
+        android:layout_marginStart="5dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/searchEditText"
+        app:layout_constraintTop_toTopOf="@id/searchEditText"/>
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchEditText"
+        android:layout_width="0dp"
+        android:background="@drawable/frame_726"
+        android:layout_height="wrap_content"
+        android:text="Search Stations"
+        app:layout_constraintEnd_toStartOf="@+id/imageContainer"
+        app:layout_constraintStart_toEndOf="@id/back_arrow"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
+        android:layout_marginHorizontal="15dp"/>
+
+        <ImageView
+            android:id="@+id/imageContainer"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:src="@drawable/heart"
+            android:padding="5dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/ellipse_40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/searchEditText"
+            app:layout_constraintTop_toBottomOf="@+id/guideline_top"
+            android:layout_gravity="center"/>
+
+    <ImageView
+        android:id="@+id/routing_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/routing_2"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        android:layout_marginTop="18dp"
+        />
+
+    <TextView
+        android:id="@+id/nearbystationtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nearby stations"
+        android:textSize="15sp"
+        android:textColor="#171725"
+        app:layout_constraintStart_toEndOf="@+id/routing_2"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="5dp"/>
+
+    <ImageView
+        android:id="@+id/clockimageview"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/clock"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/nearbystationtext"
+        app:layout_constraintTop_toBottomOf="@+id/imageContainer"
+        />
+
+    <TextView
+        android:id="@+id/recenttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recents"
+        android:textSize="15sp"
+        android:textColor="#92929D"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@id/clockimageview"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        android:layout_marginStart="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/recenttext"
+        android:background="#F1F1F5"/>
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recylerview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:orientation="vertical"
+    tools:itemCount="2"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginHorizontal="20dp"
+    tools:listitem="@layout/search_station_card"
+    app:layout_constraintStart_toStartOf="@id/guideline_left"
+    app:layout_constraintTop_toBottomOf="@+id/clockimageview"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

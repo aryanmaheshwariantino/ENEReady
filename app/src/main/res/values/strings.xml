@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ENEReady</string>
+    <string name="request_for_authorization">Request for Authorization</string>
+    <string name="lot_status">Lot Status</string>
+</resources>

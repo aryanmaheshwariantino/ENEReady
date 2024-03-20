@@ -7,6 +7,9 @@
     android:layout_marginHorizontal="15dp"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#FFFFFF"
+    android:layout_marginTop="10dp"
     tools:context=".views.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,26 +21,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Open Valley EV Station"
-            android:layout_marginStart="15dp"
             android:textColor="#171725"
             android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="15dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/singaporetext"
-            app:layout_constraintEnd_toStartOf="@+id/availabletext"/>
+            />
 
         <TextView
             android:id="@+id/availabletext"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Second TextView"
             android:gravity="start"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
             android:textColor="#22C965"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/openvalleytext"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/singaporetext"
             app:layout_constraintEnd_toStartOf="@+id/imageView"/>
 
         <ImageView
@@ -45,10 +47,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/heart"
+            android:layout_marginTop="5dp"
             app:layout_constraintStart_toEndOf="@+id/availabletext"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/singaporetext"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"/>
+
 
         <TextView
             android:id="@+id/singaporetext"

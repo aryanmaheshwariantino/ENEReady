@@ -1,155 +1,164 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_marginHorizontal="15dp"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="#FFFFFF"
+    android:layout_marginTop="10dp"
+    tools:context=".views.MainActivity">
 
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="5dp"
-        app:cardElevation="8dp"
-        app:cardBackgroundColor="#FFFFFF">
+        android:layout_marginVertical="10dp"
+        >
 
-        <LinearLayout
-            android:id="@+id/firstlinearlayout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/openvalleytext"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <!-- TextView 1 -->
-            <TextView
-                android:id="@+id/openvalleytext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Open Valley EV Station"
-                android:gravity="start"
-                android:textSize="15sp"
-                android:layout_marginStart="15dp"
-                android:textStyle="bold"
-                android:textColor="#171725"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/availabletext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Available"
-                android:textSize="12sp"
-                android:layout_marginEnd="65dp"
-                android:textColor="#22C965"
-                android:gravity="start"
-                android:layout_weight="1"/>
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/heart"
-                android:layout_weight="1"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/secondlinearlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="35dp"
-            app:layout_constraintTop_toBottomOf="@id/firstlinearlayout">
-
-            <TextView
-                android:id="@+id/singaporetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Emery Point, Pacocha Motorway,\nSingapore"
-                android:layout_weight="1"
-                android:textSize="10dp"
-                android:layout_marginStart="15dp"
-                android:gravity="start"
-                android:textColor="#696974"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/thirdlinearlayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:layout_marginTop="70dp"
+            android:text="Open Valley EV Station"
+            android:textColor="#171725"
+            android:textSize="15sp"
+            android:layout_marginTop="5dp"
             android:layout_marginStart="15dp"
-            app:layout_constraintTop_toBottomOf="@id/secondlinearlayout">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-            <ImageView
-                android:id="@+id/starticon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/star_1"/>
+        <TextView
+            android:id="@+id/availabletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available"
+            android:gravity="start"
+            android:layout_marginTop="7dp"
+            android:textColor="#22C965"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/openvalleytext"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"/>
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="4.0"
-                android:layout_marginStart="5dp"
-                android:gravity="center"
-                android:textColor="#696974"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/heart"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/availabletext"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"/>
 
-            <ImageView
-                android:id="@+id/standicon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:src="@drawable/line_8"/>
-            <ImageView
-                android:id="@+id/gasstationid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:src="@drawable/gas_station"/>
 
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4.0"
-                android:layout_gravity="center"
-                android:layout_marginStart="5dp"
-                android:gravity="center"
-                android:textColor="#696974"/>
+        <TextView
+            android:id="@+id/singaporetext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Emery Point, Pacocha Motorway,\nSingapore"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:gravity="start"
+            android:textColor="#696974"
+            android:textSize="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/openvalleytext"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-            <ImageView
-                android:id="@+id/standicon2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:src="@drawable/line_8"/>
-            <ImageView
-                android:id="@+id/routingicon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:src="@drawable/routing"/>
+        <ImageView
+            android:id="@+id/starticon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/star_1"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"/>
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4.0"
-                android:layout_gravity="center"
-                android:layout_marginStart="5dp"
-                android:gravity="center"
-                android:textColor="#696974"/>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="4.0"
+            android:gravity="center"
+            android:textColor="#696974"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/starticon"
+            />
+        <ImageView
+            android:id="@+id/standicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            android:src="@drawable/line_8"/>
+        <ImageView
+            android:id="@+id/gasstationid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/gas_station"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/standicon"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"/>
 
-        </LinearLayout>
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="4.0"
+            android:gravity="center"
+            android:textColor="#696974"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/gasstationid"
+            />
+        <ImageView
+            android:id="@+id/standicon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/textView5"
+            android:src="@drawable/line_8"/>
+        <ImageView
+            android:id="@+id/routingicon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/routing"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/standicon2"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="15dp"/>
 
-    </com.google.android.material.card.MaterialCardView>
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="4.0"
+            android:gravity="center"
+            android:textColor="#696974"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/singaporetext"
+            app:layout_constraintStart_toEndOf="@+id/routingicon"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

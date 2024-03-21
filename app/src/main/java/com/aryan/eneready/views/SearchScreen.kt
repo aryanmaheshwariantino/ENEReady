@@ -21,184 +21,6 @@ class SearchScreen : AppCompatActivity() {
     private lateinit var adapter: CardAdapter
     private lateinit var adapter2: CardAdapter2
 
-    private val dataList = listOf(
-        CardItem(
-            "Open Valley EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-        CardItem(
-            "Gurgaon EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-        CardItem(
-            "Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-        CardItem(
-            "Old Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-        CardItem(
-            "New Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-        CardItem(
-            "Gurugram EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway,\n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km"
-        ),
-    )
-    private val dataList2 = arrayListOf(
-        CardItem2(
-            "Open Valley EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway, \n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km",
-            "Last used on 12th Jan 05:00PM",
-            "Reserve",
-            "ViewDetails"
-        ),
-        CardItem2(
-            "Gurgaon EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway, \n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km",
-            "Last used on 12th Jan 05:00PM",
-            "Reserve",
-            "ViewDetails"
-        ),
-        CardItem2(
-            "Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway, \n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km",
-            "Last used on 12th Jan 05:00PM",
-            "Reserve",
-            "ViewDetails"
-        ),
-        CardItem2(
-            "Old Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway, \n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km",
-            "Last used on 12th Jan 05:00PM",
-            "Reserve",
-            "ViewDetails"
-        ),
-        CardItem2(
-            "New Delhi EV Station",
-            "Available",
-            R.drawable.heart,
-            "Emery Point, Pacocha Motorway, \n Singapore",
-            R.drawable.star_1,
-            "4.0",
-            R.drawable.line_8,
-            R.drawable.gas_station,
-            "3 Lots",
-            R.drawable.line_8,
-            R.drawable.routing,
-            "1.4km",
-            "Last used on 12th Jan 05:00PM",
-            "Reserve",
-            "ViewDetails"
-        ),
-    )
-
-//    private val viewModel: SearchScreenViewModel by viewModels {
-//        SearchScreenViewModelFactory(MyRepository())
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchScreenBinding.inflate(layoutInflater)
@@ -213,7 +35,6 @@ class SearchScreen : AppCompatActivity() {
         binding.nearbystationtext.setOnClickListener {
             binding.nearbystationtext.setTextColor(resources.getColor(R.color.onchangedtextcolor))
             binding.recenttext.setTextColor(resources.getColor(R.color.recenttext))
-            adapter = CardAdapter(dataList)
             recyclerView.adapter = adapter
             setupSearchView(binding.searchEditText, adapter)
         }
@@ -221,7 +42,6 @@ class SearchScreen : AppCompatActivity() {
         binding.recenttext.setOnClickListener{
             binding.nearbystationtext.setTextColor(resources.getColor(R.color.recenttext))
             binding.recenttext.setTextColor(resources.getColor(R.color.onchangedtextcolor))
-            adapter2 = CardAdapter2(dataList2)
             recyclerView.adapter = adapter2
             setupSearchView(binding.searchEditText, adapter2)
         }

@@ -3,9 +3,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aryan.eneready.databinding.SearchStationCardBinding
 import com.aryan.eneready.models.CardItem
-import com.aryan.eneready.models.CardItem2
 
-class CardAdapter(private val dataList: List<CardItem>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+class CardAdapter(private var dataList: List<CardItem>) : RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
+
+    private var filteredDataList: List<CardItem> = dataList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -14,12 +15,21 @@ class CardAdapter(private val dataList: List<CardItem>) : RecyclerView.Adapter<C
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        val data = dataList[position]
+        val data = filteredDataList[position]
         holder.bind(data)
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return filteredDataList.size
+    }
+
+    fun filterByText(query: String) {
+        filteredDataList = if (query.isEmpty()) {
+            dataList
+        } else {
+            dataList.filter { it.openValleyText.contains(query, ignoreCase = true) }
+        }
+        notifyDataSetChanged()
     }
 
     inner class CardViewHolder(private val binding: SearchStationCardBinding) : RecyclerView.ViewHolder(binding.root) {

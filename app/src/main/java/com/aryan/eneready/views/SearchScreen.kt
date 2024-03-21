@@ -3,8 +3,6 @@ package com.aryan.eneready.views
 import CardAdapter
 import CardAdapter2
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,15 +11,12 @@ import com.aryan.eneready.R
 import com.aryan.eneready.databinding.ActivitySearchScreenBinding
 import com.aryan.eneready.models.CardItem
 import com.aryan.eneready.models.CardItem2
-import com.aryan.eneready.utils.toArrayList
-import java.util.Locale.filter
-
 
 class SearchScreen : AppCompatActivity() {
     private lateinit var binding: ActivitySearchScreenBinding
     private lateinit var adapter: CardAdapter
     private lateinit var adapter2: CardAdapter2
-    val dataList2 = arrayListOf(
+    private val dataList2 = arrayListOf(
         CardItem2(
             "Open Valley EV Station",
             "Available",
@@ -72,7 +67,7 @@ class SearchScreen : AppCompatActivity() {
             "Last used on 12th Jan 05:00PM",
             "Reserve",
             "ViewDetails"
-        ),
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -129,40 +124,36 @@ class SearchScreen : AppCompatActivity() {
                     R.drawable.line_8,
                     R.drawable.routing,
                     "1.4km"
-                ),
+                )
             )
             adapter = CardAdapter(dataList)
             recyclerView.adapter = adapter
+            setupSearchView(binding.searchEditText, adapter, dataList)
         }
+
         binding.recenttext.setOnClickListener{
             binding.nearbystationtext.setTextColor(resources.getColor(R.color.recenttext))
             binding.recenttext.setTextColor(resources.getColor(R.color.onchangedtextcolor))
             adapter2 = CardAdapter2(dataList2)
             recyclerView.adapter = adapter2
+            setupSearchView(binding.searchEditText, adapter2, dataList2)
         }
-        binding.searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+    }
+
+    private fun setupSearchView(searchEditText: SearchView, adapter: RecyclerView.Adapter<*>, dataList: List<*>) {
+        searchEditText.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText.isNullOrEmpty()){
-                    adapter2.filterByText(dataList2)
-                }else{
-                    adapter2.filterByText(dataList2.filter { it.openValleyText.contains(newText?:"", ignoreCase = true) }.toArrayList())
+                if (adapter is CardAdapter) {
+                    adapter.filterByText(newText.orEmpty())
+                } else if (adapter is CardAdapter2) {
+                    adapter.filterByText(newText.orEmpty())
                 }
                 return false
             }
-
-        }
-
-        )
-
-
-
-
-
-
-
+        })
     }
 }
